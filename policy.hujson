@@ -1,0 +1,27 @@
+// Example/default ACLs for unrestricted connections.
+{
+	// Declare convenient hostname aliases to use in place of IP addresses.
+	"hosts": {
+		"splendor": "100.109.183.108",
+		"zen":      "100.71.28.44",
+	},
+
+	// Access control lists.
+	"acls": [
+		// Match absolutely everything.
+		// Comment this section out if you want to define specific restrictions.
+		{"action": "accept", "src": ["*"], "dst": ["*:*"]},
+	],
+	"ssh": [
+		// Allow all users to SSH into their own devices in check mode.
+		// Comment this section out if you want to define specific restrictions.
+		{
+			"action": "check",
+			"src":    ["autogroup:members"],
+			"dst":    ["autogroup:self"],
+			"users":  ["autogroup:nonroot", "root"],
+		},
+	],
+}
+
+// vi: ft=json
