@@ -17,11 +17,14 @@
 		// Comment this section out if you want to define specific restrictions.
 		{
 			"action": "check",
-			"src":    ["autogroup:members"],
-			"dst":    ["autogroup:self"],
-			"users":  ["autogroup:nonroot", "root"],
+			"src":    ["autogroup:self"],
+			"dst":    ["tag:server"],
+			"users":  ["autogroup:nonroot"],
 		},
-	],
+	],  
+    "tagOwners": {
+        "tag:server": ["azuline@github"]
+    }
 }
 
 // vi: ft=json
